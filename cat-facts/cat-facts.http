@@ -1,0 +1,6 @@
+@cat_facts_HostAddress = http://localhost:5229
+
+GET {{cat_facts_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
