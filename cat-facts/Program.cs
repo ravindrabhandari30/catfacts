@@ -32,17 +32,26 @@ builder.Services.AddAuthentication(options =>
 });
 builder.Services.AddScoped<ITokenService, TokenService>();
 
-builder.Services.AddControllers();
+builder.Services.AddScoped<ICatFactService, CatFactService>();
 
+
+
+builder.Services.AddControllers();
+builder.Services.AddAuthorization();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
-
+app.UseSwagger();
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Cat Facts API V1");
+    c.RoutePrefix = string.Empty; // opens Swagger at root (optional)
+});
 
 app.UseAuthentication();
+app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllers();
-
 app.Run();

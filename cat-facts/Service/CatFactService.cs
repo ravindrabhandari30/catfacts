@@ -6,7 +6,15 @@ namespace cat_facts.Service
     
     public class CatFactService : ICatFactService
     {
-        private readonly string _filePath = "catfacts.json";
+       // private readonly string _filePath = "Data/catfacts.json";
+
+        private readonly string _filePath;
+
+        public CatFactService(IWebHostEnvironment env)
+        {
+            _filePath = Path.Combine(env.ContentRootPath, "Data", "catfact.json");
+        }
+
 
         public List<CatFact> GetAll()
         {
