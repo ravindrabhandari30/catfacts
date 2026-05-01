@@ -38,6 +38,12 @@ namespace cat_facts.Service
                 Encoding.UTF8.GetBytes(jwtSettings["Key"])
             );
 
+            
+            Console.WriteLine("Issuer: " + jwtSettings["Issuer"]);
+            Console.WriteLine("Audience: " + jwtSettings["Audience"]);
+            Console.WriteLine("Key: " + jwtSettings["Key"]);
+
+            
             // Define the signing credentials using HMAC SHA256 algorithm
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
