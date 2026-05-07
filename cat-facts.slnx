@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="cat-facts.Tests/cat-facts.Tests.csproj" Id="2114944c-fc0e-49c8-b7d4-34bfc5b1cc3c" />
   <Project Path="cat-facts/cat-facts.csproj" />
 </Solution>
